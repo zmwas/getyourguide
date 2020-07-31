@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">GetYourGuide</string>
+    <string name="play_list_not_found">Playlist not found.</string>
+    <string name="bad_request">The request was not correct.</string>
+    <string name="general_error">Something went wrong.Please try again later.</string>
+    <string name="unauthorized">Bad credentials. Please log in again.</string>
+    <string name="progress_message">Loading. Please wait</string>
+
+
 </resources>

@@ -81,7 +81,7 @@ dependencies {
 
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
-    testImplementation "androidx.paging:paging-common-ktx:$paging_version" // For Kotlin use paging-common-ktx
+    testImplementation "androidx.paging:paging-common-ktx:$paging_version"
 
 
     testImplementation 'junit:junit:4.12'
