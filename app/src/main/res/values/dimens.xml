@@ -8,4 +8,5 @@
     <dimen name="review_title_margin_start">8dp</dimen>
     <dimen name="review_rating_bar_margin_top">6dp</dimen>
     <dimen name="review_title_font">14sp</dimen>
+    <dimen name="review_title_width">0dp</dimen>
 </resources>

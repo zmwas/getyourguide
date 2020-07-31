@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
 
         <variable
             name="review"
             type="com.getyourguide.app.reviews.models.Review" />
     </data>
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="@dimen/card_height_dimen"
@@ -31,11 +29,11 @@
 
             <TextView
                 android:id="@+id/review_title"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/review_title_width"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
-                android:text="@{review.title}"
                 android:layout_marginStart="@dimen/review_title_margin_start"
+                android:maxLines="@integer/review_title_max_lines"
+                android:text="@{review.title}"
                 android:textSize="@dimen/review_title_font"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/reviewer_image"
@@ -45,11 +43,9 @@
                 android:id="@+id/ratingBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="@dimen/review_rating_bar_margin_top"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/review_title" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>
