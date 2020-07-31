@@ -17,7 +17,7 @@ class ReviewsDataSource(private val reviewsRepository: ReviewsRepository) :
 
     @SuppressLint("CheckResult")
     override fun loadInitial(params: LoadInitialParams, callback: LoadInitialCallback<Review>) {
-        reviewsRepository.fetchReviews(0, 10).subscribe(
+        reviewsRepository.fetchReviews(0, params.requestedLoadSize).subscribe(
             Consumer {
                 callback.onResult(it.reviews, 0)
             })
