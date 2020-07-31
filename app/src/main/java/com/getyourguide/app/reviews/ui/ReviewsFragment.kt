@@ -11,7 +11,8 @@ import com.getyourguide.app.databinding.FragmentReviewsListBinding
 
 class ReviewsFragment : Fragment() {
 
-    lateinit var binding: FragmentReviewsListBinding
+    private lateinit var binding: FragmentReviewsListBinding
+    private lateinit var adapter: ReviewsListAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -19,6 +20,9 @@ class ReviewsFragment : Fragment() {
     ): View? {
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_reviews_list, container, false)
+        adapter = ReviewsListAdapter()
+        binding.reviewList.adapter = adapter
+
         return binding.root
     }
 
