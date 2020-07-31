@@ -1,7 +1,12 @@
 package com.getyourguide.app.reviews.ui
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.getyourguide.app.databinding.ReviewItemLayoutBinding
+import com.getyourguide.app.reviews.models.Review
 
-class ReviewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class ReviewsViewHolder(private val binding: ReviewItemLayoutBinding) :
+    RecyclerView.ViewHolder(binding.root) {
+    fun bind(review: Review) {
+        binding.review = review
+    }
 }
