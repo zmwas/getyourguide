@@ -7,12 +7,12 @@ import androidx.paging.PagedList
 import androidx.paging.toLiveData
 import com.getyourguide.app.reviews.data.ReviewsDataSourceFactory
 import com.getyourguide.app.reviews.data.ReviewsRepository
-import com.getyourguide.app.reviews.models.Reviews
+import com.getyourguide.app.reviews.models.Review
 import javax.inject.Inject
 
 class ReviewsViewModel @Inject constructor(private val reviewsRepository: ReviewsRepository) :
     ViewModel() {
-    fun fetchReviewsForActivity(): LiveData<PagedList<Reviews>> {
+    fun fetchReviewsForActivity(): LiveData<PagedList<Review>> {
         val reviewsDataSource =
             ReviewsDataSourceFactory(
                 reviewsRepository

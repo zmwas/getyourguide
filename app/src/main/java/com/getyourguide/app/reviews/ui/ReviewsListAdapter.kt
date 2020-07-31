@@ -2,9 +2,9 @@ package com.getyourguide.app.reviews.ui
 
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
-import com.getyourguide.app.reviews.models.Reviews
+import com.getyourguide.app.reviews.models.Review
 
-class ReviewsListAdapter : PagedListAdapter<Reviews, ReviewsViewHolder>(DiffUtil()) {
+class ReviewsListAdapter : PagedListAdapter<Review, ReviewsViewHolder>(DiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewsViewHolder {
         TODO("Not yet implemented")

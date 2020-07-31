@@ -3,7 +3,7 @@ package com.getyourguide.app.reviews.models
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class Reviews(
+data class Review(
     @SerializedName("id") @Expose val id: Int,
     @SerializedName("author") @Expose val author: Author,
     @SerializedName("title") @Expose val title: String,

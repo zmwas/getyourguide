@@ -1,15 +1,15 @@
 package com.getyourguide.app.reviews.ui
 
 import androidx.recyclerview.widget.DiffUtil
-import com.getyourguide.app.reviews.models.Reviews
+import com.getyourguide.app.reviews.models.Review
 
-class DiffUtil : DiffUtil.ItemCallback<Reviews>() {
+class DiffUtil : DiffUtil.ItemCallback<Review>() {
 
-    override fun areItemsTheSame(oldItem: Reviews, newItem: Reviews): Boolean {
+    override fun areItemsTheSame(oldItem: Review, newItem: Review): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: Reviews, newItem: Reviews): Boolean {
+    override fun areContentsTheSame(oldItem: Review, newItem: Review): Boolean {
         return oldItem == newItem
     }
 }
