@@ -1,7 +1,7 @@
 package com.getyourguide.app.dependencyinjection
 
-import com.getyourguide.app.BuildConfig.USER_AGENT
 import com.getyourguide.app.BuildConfig.BASE_URL
+import com.getyourguide.app.BuildConfig.USER_AGENT
 import com.getyourguide.app.reviews.data.ReviewsApiService
 import dagger.Module
 import dagger.Provides
@@ -20,25 +20,12 @@ class DataModule {
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
-        val queryParamInterceptor = queryParamInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-        return OkHttpClient().newBuilder().addInterceptor(loggingInterceptor)
-            .addInterceptor(queryParamInterceptor)
+        return OkHttpClient().newBuilder()
+            .addInterceptor(loggingInterceptor)
             .addNetworkInterceptor(userAgentInterceptor())
             .build()
     }
-
-    private fun queryParamInterceptor(): Interceptor {
-        return Interceptor {
-            val request = it.request()
-            val url = request.url()
-            val queryUrl = url.newBuilder()
-                .build()
-            val requestBuilder: Request.Builder = request.newBuilder().url(queryUrl)
-            it.proceed(requestBuilder.build())
-        }
-    }
-
 
     private fun userAgentInterceptor(): Interceptor {
         return Interceptor {

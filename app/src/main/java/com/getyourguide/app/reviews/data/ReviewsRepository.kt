@@ -1,6 +1,5 @@
 package com.getyourguide.app.reviews.data
 
-import com.getyourguide.app.reviews.data.ReviewsApiService
 import com.getyourguide.app.reviews.models.ReviewsResponse
 import io.reactivex.Single
 import javax.inject.Inject
