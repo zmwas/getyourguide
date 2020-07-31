@@ -10,14 +10,16 @@ import com.getyourguide.app.reviews.data.ReviewsDataSourceFactory
 import com.getyourguide.app.reviews.models.Review
 import javax.inject.Inject
 
-class ReviewsViewModel @Inject constructor(private val apiService: ReviewsApiService) :
-    ViewModel() {
-    fun fetchReviewsForActivity(): LiveData<PagedList<Review>> {
-        val reviewsDataSource =
-            ReviewsDataSourceFactory(
-                apiService
-            )
+class ReviewsViewModel @Inject constructor(apiService: ReviewsApiService) : ViewModel() {
+    var reviewsLiveData: LiveData<PagedList<Review>>
+
+    init {
+        val reviewsDataSource = ReviewsDataSourceFactory(apiService)
         val pagedListConfig = Config(pageSize = 10, enablePlaceholders = true)
-        return reviewsDataSource.toLiveData(pagedListConfig)
+        reviewsLiveData = reviewsDataSource.toLiveData(pagedListConfig)
+    }
+
+    fun fetchReviewsForActivity(): LiveData<PagedList<Review>> {
+        return reviewsLiveData
     }
 }

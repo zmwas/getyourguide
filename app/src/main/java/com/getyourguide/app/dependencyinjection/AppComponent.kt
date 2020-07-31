@@ -3,11 +3,11 @@ package com.getyourguide.app.dependencyinjection
 import com.getyourguide.app.application.GetYourGuideApplication
 import dagger.BindsInstance
 import dagger.Component
-import dagger.android.AndroidInjectionModule
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AndroidInjectionModule::class, DataModule::class, ActivityModule::class, ViewModelModule::class])
+@Component(modules = [AndroidSupportInjectionModule::class, ActivityModule::class, DataModule::class, FragmentModule::class, ViewModelModule::class])
 interface AppComponent {
 
     @Component.Builder

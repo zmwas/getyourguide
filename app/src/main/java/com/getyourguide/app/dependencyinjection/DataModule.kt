@@ -29,8 +29,7 @@ class DataModule {
 
     private fun userAgentInterceptor(): Interceptor {
         return Interceptor {
-            val request = it.request()
-            val requestBuilder: Request.Builder = request.newBuilder()
+            val requestBuilder: Request.Builder = it.request().newBuilder()
                 .header("User-Agent", USER_AGENT)
             it.proceed(requestBuilder.build())
         }

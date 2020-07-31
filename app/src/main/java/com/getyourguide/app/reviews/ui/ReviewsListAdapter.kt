@@ -8,7 +8,7 @@ import com.getyourguide.app.R
 import com.getyourguide.app.databinding.ReviewItemLayoutBinding
 import com.getyourguide.app.reviews.models.Review
 
-class ReviewsListAdapter() : PagedListAdapter<Review, ReviewsViewHolder>(DiffUtil()) {
+class ReviewsListAdapter : PagedListAdapter<Review, ReviewsViewHolder>(DiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -21,5 +21,4 @@ class ReviewsListAdapter() : PagedListAdapter<Review, ReviewsViewHolder>(DiffUti
         val review = getItem(position)
         holder.bind(review)
     }
-
 }
