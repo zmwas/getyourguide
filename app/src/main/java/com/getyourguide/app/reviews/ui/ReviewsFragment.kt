@@ -72,7 +72,6 @@ class ReviewsFragment : Fragment(), ItemClickedCallback {
     private fun displayReviews(reviews: PagedList<Review>) {
         binding.loading.visibility = GONE
         binding.reviewList.visibility = VISIBLE
-        adapter
         adapter.submitList(reviews)
         binding.refreshLayout.isRefreshing = false
     }
