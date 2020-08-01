@@ -50,9 +50,12 @@ class ReviewsListAdapter(private val itemClickedCallback: ItemClickedCallback) :
     }
 
     override fun getItemViewType(position: Int): Int {
-        if (networkState.status == Status.RUNNING && position == itemCount - 1) {
-            return 0
-        } else return 1
+        return when {
+            networkState.status == Status.RUNNING && position == itemCount - 1 -> {
+                0
+            }
+            else -> 1
+        }
     }
 
     companion object {
