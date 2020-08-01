@@ -6,7 +6,7 @@ import com.getyourguide.app.reviews.models.Review
 
 class ReviewsDataSourceFactory(private val apiService: ReviewsApiService) :
     DataSource.Factory<Int, Review>() {
-    private val sourceLiveData = MutableLiveData<ReviewsDataSource>()
+    val sourceLiveData = MutableLiveData<ReviewsDataSource>()
     private lateinit var latestSource: ReviewsDataSource
 
     override fun create(): DataSource<Int, Review> {

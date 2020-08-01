@@ -6,7 +6,12 @@ import com.getyourguide.app.reviews.models.Review
 
 class ReviewsViewHolder(private val binding: ReviewItemLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {
+
     fun bind(review: Review?) {
         binding.review = review
+    }
+
+    fun getBinding(): ReviewItemLayoutBinding {
+        return binding
     }
 }

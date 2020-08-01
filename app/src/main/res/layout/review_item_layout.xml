@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="android.text.TextUtils" />
+
         <variable
             name="review"
             type="com.getyourguide.app.reviews.models.Review" />
@@ -35,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/review_title_margin_start"
                 android:maxLines="@integer/review_title_max_lines"
-                android:text="@{review.title}"
+                android:text="@{TextUtils.isEmpty(review.title) ? review.message : review.title}"
                 android:textSize="@dimen/review_title_font"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/reviewer_image"
@@ -46,6 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/review_rating_bar_margin_top"
+                android:isIndicator="true"
                 android:rating="@{review.rating}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/review_title" />

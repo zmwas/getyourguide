@@ -3,7 +3,7 @@
     <dimen name="card_margin_dimen">12dp</dimen>
     <dimen name="card_padding_dimen">8dp</dimen>
     <dimen name="card_corner_radius_dimen">16dp</dimen>
-    <dimen name="card_height_dimen">96dp</dimen>
+    <dimen name="card_height_dimen">112dp</dimen>
 
     <dimen name="review_title_margin_start">8dp</dimen>
     <dimen name="review_rating_bar_margin_top">6dp</dimen>

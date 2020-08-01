@@ -2,6 +2,7 @@ package com.getyourguide.app.reviews.models
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Review(
     @SerializedName("id") @Expose val id: Int,
@@ -14,4 +15,4 @@ data class Review(
     @SerializedName("created") @Expose val created: String,
     @SerializedName("language") @Expose val language: String,
     @SerializedName("travelerType") @Expose val travelerType: String
-)
+) : Serializable
