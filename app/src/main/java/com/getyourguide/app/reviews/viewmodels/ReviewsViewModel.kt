@@ -25,7 +25,6 @@ class ReviewsViewModel @Inject constructor(apiService: ReviewsApiService) : View
     }
 
     fun fetchReviewsForActivity(): LiveData<PagedList<Review>> {
-
         return reviewsLiveData
     }
 
