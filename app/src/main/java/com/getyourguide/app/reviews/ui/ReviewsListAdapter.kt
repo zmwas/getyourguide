@@ -17,18 +17,18 @@ class ReviewsListAdapter(private val itemClickedCallback: ItemClickedCallback) :
     private lateinit var networkState: NetworkState
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        when (viewType) {
+        return when (viewType) {
             TYPE_LOADER -> {
                 val binding: ItemLoadMoreBinding =
                     DataBindingUtil.inflate(inflater, R.layout.item_load_more, parent, false)
-                return LoadingViewHolder(binding)
+                LoadingViewHolder(binding)
             }
 
             TYPE_REVIEW -> {
                 val binding: ReviewItemLayoutBinding = DataBindingUtil
                     .inflate(inflater, R.layout.review_item_layout, parent, false)
 
-                return ReviewsViewHolder(binding)
+                ReviewsViewHolder(binding)
             }
             else -> throw RuntimeException("There is no type that matches the type $viewType + make sure your using types correctly")
         }
