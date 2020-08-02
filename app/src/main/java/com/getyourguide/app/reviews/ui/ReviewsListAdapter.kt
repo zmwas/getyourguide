@@ -23,18 +23,16 @@ class ReviewsListAdapter(private val itemClickedCallback: ItemClickedCallback) :
                     DataBindingUtil.inflate(inflater, R.layout.item_load_more, parent, false)
                 LoadingViewHolder(binding)
             }
-
             TYPE_REVIEW -> {
                 val binding: ReviewItemLayoutBinding = DataBindingUtil
                     .inflate(inflater, R.layout.review_item_layout, parent, false)
-
                 ReviewsViewHolder(binding)
             }
             else -> throw RuntimeException("There is no type that matches the type $viewType + make sure your using types correctly")
         }
     }
 
-    fun setNetwotkState(networkState: NetworkState) {
+    fun setNetworkState(networkState: NetworkState) {
         this.networkState = networkState
     }
 

@@ -34,7 +34,7 @@ class ReviewDetailFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_review_detail, container, false)
         binding.review = review
         setDateText(review.created)
-        loadImage(review?.author?.photo)
+        loadImage(review.author.photo)
         return binding.root
     }
 

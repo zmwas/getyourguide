@@ -50,7 +50,7 @@ class ReviewsFragment : Fragment(), ItemClickedCallback {
     }
 
     private fun setNetworkState() =
-        viewModel.getNetworkState().observe(viewLifecycleOwner, Observer(adapter::setNetwotkState))
+        viewModel.getNetworkState().observe(viewLifecycleOwner, Observer(adapter::setNetworkState))
 
     private fun setUpRefreshListener() = binding.refreshLayout.setOnRefreshListener {
         viewModel.refresh()

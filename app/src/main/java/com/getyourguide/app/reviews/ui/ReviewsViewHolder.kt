@@ -15,7 +15,6 @@ class ReviewsViewHolder(private val binding: ReviewItemLayoutBinding) :
         if (TextUtils.isEmpty(review?.author?.photo))
             binding.reviewerImage.setImageResource(R.drawable.image_placeholder)
         else Picasso.get().load(review?.author?.photo).into(binding.reviewerImage)
-
     }
 
     fun getBinding(): ReviewItemLayoutBinding {
