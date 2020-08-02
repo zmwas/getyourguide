@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils" />
+        <variable
+            name="review"
+            type="com.getyourguide.app.reviews.models.Review" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/detail_view_margin">
+
+        <TextView
+            android:id="@+id/date_created"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/detail_text_height"
+            android:layout_marginBottom="@dimen/detail_text_margin"
+            app:civ_border_width="@dimen/reviewer_image_border_width"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/reviewer_image"
+            android:layout_width="@dimen/reviewer_image_diameter"
+            android:layout_height="@dimen/reviewer_image_diameter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/date_created"
+            />
+
+        <TextView
+            android:id="@+id/reviewer_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/detail_text_height"
+            android:layout_marginTop="@dimen/detail_text_margin"
+            android:layout_marginStart="@dimen/detail_text_margin"
+            android:textSize="@dimen/reviewer_name_font_size"
+            android:text="@{review.isAnonymous?@string/anonymous_user:review.author.fullName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reviewer_image"
+            app:layout_constraintTop_toBottomOf="@+id/date_created" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:rating="@{review.rating}"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reviewer_image" />
+
+        <TextView
+            android:id="@+id/review_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{review.title}"
+            android:visibility="@{TextUtils.isEmpty(review.title) ? View.GONE: View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <TextView
+            android:id="@+id/review_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{review.message}"
+            android:visibility="@{TextUtils.isEmpty(review.message) ? View.GONE: View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_title" />
+
+        <TextView
+            android:id="@+id/review_enjoyment_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/what_i_enjoyed"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/detail_text_margin"
+            android:visibility="@{TextUtils.isEmpty(review.enjoyment) ? View.GONE: View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_message" />
+
+        <TextView
+            android:id="@+id/review_enjoyment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{review.enjoyment}"
+            android:layout_marginTop="@dimen/detail_text_margin"
+            android:visibility="@{TextUtils.isEmpty(review.enjoyment) ? View.GONE: View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review_enjoyment_header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

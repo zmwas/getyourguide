@@ -9,4 +9,10 @@
     <dimen name="review_rating_bar_margin_top">6dp</dimen>
     <dimen name="review_title_font">14sp</dimen>
     <dimen name="review_title_width">0dp</dimen>
+    <dimen name="reviewer_image_diameter">48dp</dimen>
+    <dimen name="detail_view_margin">12dp</dimen>
+    <dimen name="detail_text_height">24dp</dimen>
+    <dimen name="detail_text_margin">16dp</dimen>
+    <dimen name="reviewer_image_border_width">2dp</dimen>
+    <dimen name="reviewer_name_font_size">16sp</dimen>
 </resources>
