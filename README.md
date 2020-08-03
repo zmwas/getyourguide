@@ -20,7 +20,7 @@ Architecture:
 
 - MVVM is used to separate concerns and enable testing of implementation details in the view model.
 - The activity calls the viewmodel to fetch a livedata containing the  reviews.
--To enable fetching of paginated results I used the jetpack paging library to fetched paged results
+- To enable fetching of paginated results I used the jetpack paging library to fetched paged results
 and pass them through to the livedata in the viewmodel.
 
 
