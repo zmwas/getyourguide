@@ -24,7 +24,7 @@ class DataModule {
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient().newBuilder()
             .addInterceptor(loggingInterceptor)
-//            .addNetworkInterceptor(userAgentInterceptor())
+            .addNetworkInterceptor(userAgentInterceptor())
             .connectTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)

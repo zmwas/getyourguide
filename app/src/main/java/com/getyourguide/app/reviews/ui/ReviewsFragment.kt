@@ -57,10 +57,10 @@ class ReviewsFragment : Fragment(), ItemClickedCallback {
 
     private fun handleNetworkState(networkState: NetworkState) {
         if (networkState.status == Status.FAILED) {
-            if (networkState.message.equals("HTTP 404 "))
-                displaySnackbarError(R.string.not_found)
-            else
-                displaySnackbarError(R.string.general_error)
+            when {
+                networkState.message.equals("HTTP 404 ") -> displaySnackbarError(R.string.not_found)
+                else -> displaySnackbarError(R.string.general_error)
+            }
         } else {
             adapter.setNetworkState(networkState)
         }
