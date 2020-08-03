@@ -1,7 +1,5 @@
 # getyourguide
 
-Set up:
-To run the app c
 Language:
 
 - Kotlin
