@@ -33,7 +33,7 @@ class ReviewsDataSource(private val apiService: ReviewsApiService) :
 
     private fun postError(throwable: Throwable) {
         networkState.postValue(
-            NetworkState.error(throwable)
+            NetworkState.error(throwable.localizedMessage)
         )
     }
 }

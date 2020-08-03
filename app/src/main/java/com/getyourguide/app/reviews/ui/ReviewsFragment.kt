@@ -18,7 +18,10 @@ import com.getyourguide.app.R
 import com.getyourguide.app.databinding.FragmentReviewsListBinding
 import com.getyourguide.app.reviews.models.Review
 import com.getyourguide.app.reviews.viewmodels.ReviewsViewModel
+import com.getyourguide.app.utils.NetworkState
+import com.getyourguide.app.utils.Status
 import com.getyourguide.app.utils.ViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
@@ -50,7 +53,23 @@ class ReviewsFragment : Fragment(), ItemClickedCallback {
     }
 
     private fun setNetworkState() =
-        viewModel.getNetworkState().observe(viewLifecycleOwner, Observer(adapter::setNetworkState))
+        viewModel.getNetworkState().observe(viewLifecycleOwner, Observer(this::handleNetworkState))
+
+    private fun handleNetworkState(networkState: NetworkState) {
+        if (networkState.status == Status.FAILED) {
+            if (networkState.message.equals("HTTP 404 "))
+                displaySnackbarError(R.string.not_found)
+            else
+                displaySnackbarError(R.string.general_error)
+        } else {
+            adapter.setNetworkState(networkState)
+        }
+    }
+
+    private fun displaySnackbarError(stringId: Int) {
+        val contextView = activity!!.findViewById<View>(android.R.id.content)
+        Snackbar.make(contextView, getString(stringId), Snackbar.LENGTH_LONG).apply { show() }
+    }
 
     private fun setUpRefreshListener() = binding.refreshLayout.setOnRefreshListener {
         viewModel.refresh()
