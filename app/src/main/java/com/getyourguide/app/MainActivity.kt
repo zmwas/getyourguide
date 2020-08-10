@@ -11,11 +11,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-//        setSupportActionBar(binding.toolbar)
         val fragment = ReviewsFragment()
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()
-        transaction.replace(binding.content.getId(), fragment)
+        transaction.replace(binding.content.id, fragment)
         transaction.commit()
 
     }

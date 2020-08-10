@@ -30,7 +30,7 @@ class ReviewsFragment : Fragment(), ItemClickedCallback {
     @Inject
     lateinit var factory: ViewModelFactory
     private lateinit var binding: FragmentReviewsListBinding
-    private lateinit var adapter: ReviewsListAdapter
+    private val adapter by lazy { ReviewsListAdapter(this) }
     private lateinit var viewModel: ReviewsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -76,7 +76,6 @@ class ReviewsFragment : Fragment(), ItemClickedCallback {
     }
 
     private fun setUpReviewsList() {
-        adapter = ReviewsListAdapter(this)
         binding.reviewList.adapter = adapter
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = VERTICAL
