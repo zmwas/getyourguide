@@ -1,15 +1,5 @@
 # getyourguide
 
-Problem Solving
-
-- To decide on how to implement the solution I broke the problem statements into separate tasks.
-- The tasks were:
-  - fetching the list of reviews
-  - designing a recyclerview to display the reviews,
-  - implementing logic to enable continuous fetching of reviews
-  - designing a view to display a single review.
-- With the tasks fleshed out I decided on what the best technologies to use were given the tasks.
-
 
 Language:
 
